@@ -9,6 +9,7 @@ __pycache__/
 
 # Poetry
 poetry.lock
+pyproject.toml
 
 # IDE
 .idea/
