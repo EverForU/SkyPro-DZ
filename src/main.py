@@ -1,12 +1,11 @@
-from src.masks import get_mask_account, get_mask_card_number
-
+from src.widget import mask_account_card
 
 def main() -> None:
     card = "1234567812345678"
     account = "12345678901234567890"
 
-    print(get_mask_card_number(card))
-    print(get_mask_account(account))
+    print(mask_account_card(card))
+
 
 
 if __name__ == "__main__":
