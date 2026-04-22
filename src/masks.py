@@ -1,30 +1,27 @@
-def get_mask_card_number(number_card: str) -> str:
-    """Маскирует номер банковской карты в формате XXXX XX** **** XXXX."""
-    encrypted_card = []
+def mask_account_card(account: str) -> str:
+    """Маскирует номер банковской карты или счёта."""
+    encrypted_input = []
 
-    if len(number_card) != 16 or not number_card.isdigit():
-        return "Номер карты должен содержать 16 цифр"
+    for char in account:
+        if char.isdigit():
+            encrypted_input.append(char)
 
-    encrypted_card.append(number_card[0:4])
-    encrypted_card.append(" ")
-    encrypted_card.append(number_card[4:6])
-    encrypted_card.append("**")
-    encrypted_card.append(" ")
-    encrypted_card.append("****")
-    encrypted_card.append(" ")
-    encrypted_card.append(number_card[-4:])
+    if len("".join(encrypted_input)) == 20:  # Маскирует номер счёта.
 
-    return "".join(encrypted_card)
+        encrypted_account = "".join(encrypted_input)
+        return f"**{"".join(filter(str.isdigit, encrypted_account))[0:4]}"
+
+    elif len("".join(encrypted_input)) == 16:  # Маскирует номер карты.
+        encrypted_card = "".join(encrypted_input)
+        return f"{encrypted_card[0:4]} {encrypted_card[4:6]}** **** {encrypted_card[-4:]}"
+
+    else:  # При ошибке.
+        return "Не верно введён номер счёта или карты!"
 
 
-def get_mask_account(account: str) -> str:
-    """Маскирует номер счета в формате **XXXX."""
-    encrypted_account = []
+def get_date(date: str) -> str:
+    """Возвращает дату в формате ДД.ММ.ГГГГ."""
 
-    if not account.isdigit() or len(account) < 4 :
-        return "Номер счета должен состоять только из цифр и содержать минимум 4 цифры"
+    year, month, day = date[0:10].split("-")
 
-    encrypted_account.append("**")
-    encrypted_account.append(account[-4:])
-
-    return "".join(encrypted_account)
+    return f"{day}.{month}.{year}"
