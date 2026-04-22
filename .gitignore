@@ -1,0 +1,22 @@
+# Виртуальные окружения
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Poetry
+poetry.lock
+
+# IDE
+.idea/
+.vscode/
+
+# Системные файлы
+.DS_Store
+
+# Тесты / кэш
+.pytest_cache/
+.mypy_cache/
