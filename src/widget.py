@@ -9,8 +9,11 @@ def mask_account_card(account: str) -> str:
     if len("".join(encrypted_account)) == 20:
         return "".join(filter(str.isdigit,encrypted_account))
 
-    if len("".join(encrypted_account)) == 16:
+    elif len("".join(encrypted_account)) == 16:
         return "".join(filter(str.isdigit,encrypted_account))
+
+    else:
+        return "Не верно введён номер счёта или карты!"
 
     return print(encrypted_account)
     # y = "".join(x)
