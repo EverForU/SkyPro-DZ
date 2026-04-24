@@ -1,13 +1,28 @@
-from src.masks import get_date, mask_account_card
+from src.masks import get_date, get_mask_account, get_mask_card_number
+
+
+def mask_account_card(info: str) -> str:
+    """Получает данные пользователя и шифрует карту или номер счёта"""
+    parts = info.rsplit(" ", 1)
+
+    if len(parts) == 2:
+        name, number = parts
+
+        if len(number) == 16:
+            masked = get_mask_card_number(number)
+
+        else:
+            masked = get_mask_account(number)
+
+        return f"{name} {masked}"
+
+    return info
 
 
 def main() -> None:
-    card = "Maestro 7000792289606361"
-    account = "Счет 73654108430135874305"
-
-    print(mask_account_card(account))
-    print(mask_account_card(card))
-    print(get_date("2024-03-11T02:26:18.671407"))
+    print(mask_account_card("Счёт 98765455669912357654"))
+    print(mask_account_card("MasterCard 9876545566991235"))
+    print(get_date("2026-04-24T02:26:18.671407"))
 
 
 if __name__ == "__main__":

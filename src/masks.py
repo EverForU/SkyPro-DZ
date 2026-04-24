@@ -1,22 +1,29 @@
-def mask_account_card(account: str) -> str:
-    """Маскирует номер банковской карты или счёта."""
-    encrypted_input = []
+def get_mask_card_number(number_card: str) -> str:
+    """Маскирует номер банковской карты в формате XXXX XX** **** XXXX."""
+    encrypted_card = []
 
-    for char in account:
-        if char.isdigit():
-            encrypted_input.append(char)
+    for symbol in number_card:
+        if symbol.isdigit():
+            encrypted_card.append(symbol)
 
-    if len("".join(encrypted_input)) == 20:  # Маскирует номер счёта.
+    if len("".join(encrypted_card)) != 16:
+        return "Не верно введён номер карты."
 
-        encrypted_account = "".join(encrypted_input)
-        return f"**{"".join(filter(str.isdigit, encrypted_account))[0:4]}"
+    return f"{"".join(encrypted_card[0:4])} {"".join(encrypted_card[5:7])}** **** {"".join(encrypted_card[-4:])}"
 
-    elif len("".join(encrypted_input)) == 16:  # Маскирует номер карты.
-        encrypted_card = "".join(encrypted_input)
-        return f"{encrypted_card[0:4]} {encrypted_card[4:6]}** **** {encrypted_card[-4:]}"
 
-    else:  # При ошибке.
-        return "Не верно введён номер счёта или карты!"
+def get_mask_account(account: str) -> str:
+    """Маскирует номер счета в формате **XXXX."""
+    encrypted_account = []
+
+    for symbol in account:
+        if symbol.isdigit():
+            encrypted_account.append(symbol)
+
+    if len("".join(encrypted_account)) != 20:
+        return "Номер счета должен состоять 20 цифр."
+
+    return f"**{"".join(encrypted_account[-4:])}"
 
 
 def get_date(date: str) -> str:
