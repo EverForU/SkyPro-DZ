@@ -20,7 +20,7 @@ def mask_account_card(info: str) -> str:
 
 
 def main() -> None:
-    print(mask_account_card("Счёт 98765455669912357654"))
+    print(mask_account_card("Счёт 12345678901234567890"))
     print(mask_account_card("MasterCard 9876545566991235"))
     print(get_date("2026-04-24T02:26:18.671407"))
 
