@@ -1,4 +1,14 @@
 def filter_by_state(dictionaries: list[dict[str, object]], state: str = "EXECUTED") -> list[dict[str, object]]:
+    """
+    Фильтрует список словарей по значению ключа 'state'.
+
+    state: Значение состояния для фильтрации. По умолчанию 'EXECUTED'.
+
+    Returns:
+        Новый список словарей, у которых значение ключа 'state'
+        соответствует переданному параметру state.
+    """
+
     new_list = []
     for x in dictionaries:
         if x["state"] == state:
