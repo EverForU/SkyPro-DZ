@@ -19,12 +19,12 @@ def filter_by_state(dictionaries: list[dict[str, object]], state: str = "EXECUTE
 
 def sort_by_date(dictionaries: list[dict[str, object]], reverse: bool = True) -> list[dict[str, object]]:
     """
-        Сортирует список словарей по значению ключа 'date'.
-        reverse: Порядок сортировки. True — по убыванию (сначала новые).
+    Сортирует список словарей по значению ключа 'date'.
+    reverse: Порядок сортировки. True — по убыванию (сначала новые).
 
-        Returns:
-            Новый список словарей, отсортированный по дате в указанном порядке.
-        """
+    Returns:
+        Новый список словарей, отсортированный по дате в указанном порядке.
+    """
 
     return sorted(dictionaries, key=lambda x: x["date"], reverse=reverse)
 
