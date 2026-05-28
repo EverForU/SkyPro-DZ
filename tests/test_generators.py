@@ -9,7 +9,6 @@ def test_filter_by_currency_EUR(transactions_usd):
     assert len(result_list) == 1
 
 
-
 def test_filter_by_currency_RUB(transactions_usd):
     """Фильтрация по валюте RUB"""
     result = filter_by_currency(transactions_usd, "RUB")
@@ -20,18 +19,7 @@ def test_filter_by_currency_RUB(transactions_usd):
 
 def test_filter_by_currency_key_error():
     """Отсутствует ключ 'operationAmount' (KeyError)"""
-    transactions = [
-        {
-            "id": 1,
-            "something": "else"
-        },
-        {
-            "id": 2,
-            "operationAmount": {
-                "currency": {"code": "USD"}
-            }
-        }
-    ]
+    transactions = [{"id": 1, "something": "else"}, {"id": 2, "operationAmount": {"currency": {"code": "USD"}}}]
 
     result = filter_by_currency(transactions, "USD")
     result_list = list(result)
@@ -40,15 +28,9 @@ def test_filter_by_currency_key_error():
     assert result_list[0]["id"] == 2
 
 
-
-
 def test_transaction_descriptions(transactions_usd):
     """Ожидаем возвращение итератора по операции"""
-    transactions = [
-        {"description": "Покупка"},
-        {"description": "Перевод"},
-        {"description": "Оплата"}
-    ]
+    transactions = [{"description": "Покупка"}, {"description": "Перевод"}, {"description": "Оплата"}]
     descriptions = transaction_descriptions(transactions)
 
     assert next(descriptions) == "Покупка"
@@ -86,10 +68,9 @@ def test_card_number_generator_single_number():
     assert len(result_list) == 1
     assert result_list[0] == "0000 0000 0000 0042"
 
+
 def test_transaction_descriptions_empty():
     """Тест: пустой список"""
     transactions = []
     result = transaction_descriptions(transactions)
     assert list(result) == []
-
-

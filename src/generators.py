@@ -3,48 +3,24 @@ from typing import Iterator, Dict, Any
 transactions = [
     {
         "id": 1,
-        "operationAmount": {
-            "amount": "100.50",
-            "currency": {
-                "name": "Доллар",
-                "code": "USD"
-            }
-        },
-        "description": "Покупка в магазине"
+        "operationAmount": {"amount": "100.50", "currency": {"name": "Доллар", "code": "USD"}},
+        "description": "Покупка в магазине",
     },
     {
         "id": 2,
-        "operationAmount": {
-            "amount": "5000.00",
-            "currency": {
-                "name": "Рубль",
-                "code": "RUB"
-            }
-        },
-        "description": "Перевод другу"
+        "operationAmount": {"amount": "5000.00", "currency": {"name": "Рубль", "code": "RUB"}},
+        "description": "Перевод другу",
     },
     {
         "id": 3,
-        "operationAmount": {
-            "amount": "75.20",
-            "currency": {
-                "name": "Доллар",
-                "code": "USD"
-            }
-        },
-        "description": "Оплата подписки"
+        "operationAmount": {"amount": "75.20", "currency": {"name": "Доллар", "code": "USD"}},
+        "description": "Оплата подписки",
     },
     {
         "id": 4,
-        "operationAmount": {
-            "amount": "200.00",
-            "currency": {
-                "name": "Евро",
-                "code": "EUR"
-            }
-        },
-        "description": "Билет в музей"
-    }
+        "operationAmount": {"amount": "200.00", "currency": {"name": "Евро", "code": "EUR"}},
+        "description": "Билет в музей",
+    },
 ]
 
 
@@ -58,9 +34,6 @@ def filter_by_currency(transactions_usd: list[Dict[str, Any]], currency_code: st
         except (TypeError, KeyError, AttributeError) as error:
             print(f"Ошибка в транзакции {usd}: - {error}")
             continue
-
-
-
 
 
 def transaction_descriptions(description: list) -> Iterator:

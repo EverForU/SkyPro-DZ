@@ -15,51 +15,28 @@ def transactions_dict():
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
     ]
 
+
 @pytest.fixture
 def transactions_usd():
     return [
-    {
-        "id": 1,
-        "operationAmount": {
-            "amount": "100.50",
-            "currency": {
-                "name": "Доллар",
-                "code": "USD"
-            }
+        {
+            "id": 1,
+            "operationAmount": {"amount": "100.50", "currency": {"name": "Доллар", "code": "USD"}},
+            "description": "Покупка в магазине",
         },
-        "description": "Покупка в магазине"
-    },
-    {
-        "id": 2,
-        "operationAmount": {
-            "amount": "5000.00",
-            "currency": {
-                "name": "Рубль",
-                "code": "RUB"
-            }
+        {
+            "id": 2,
+            "operationAmount": {"amount": "5000.00", "currency": {"name": "Рубль", "code": "RUB"}},
+            "description": "Перевод другу",
         },
-        "description": "Перевод другу"
-    },
-    {
-        "id": 3,
-        "operationAmount": {
-            "amount": "75.20",
-            "currency": {
-                "name": "Доллар",
-                "code": "USD"
-            }
+        {
+            "id": 3,
+            "operationAmount": {"amount": "75.20", "currency": {"name": "Доллар", "code": "USD"}},
+            "description": "Оплата подписки",
         },
-        "description": "Оплата подписки"
-    },
-    {
-        "id": 4,
-        "operationAmount": {
-            "amount": "200.00",
-            "currency": {
-                "name": "Евро",
-                "code": "EUR"
-            }
+        {
+            "id": 4,
+            "operationAmount": {"amount": "200.00", "currency": {"name": "Евро", "code": "EUR"}},
+            "description": "Билет в музей",
         },
-        "description": "Билет в музей"
-    }
-]
+    ]
