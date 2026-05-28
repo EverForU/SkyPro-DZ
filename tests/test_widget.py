@@ -12,7 +12,7 @@ from src.widget import get_date_main, mask_account_card
         ("MasterCard 9876545566991235", "MasterCard 9876 54** **** 1235"),
         ("9876545566991235", "9876 54** **** 1235"),
         ("MasterCard 9876545565", "Не верно указан номер или счёт."),
-        ("MasterCard 9876 5455 65", "Не верно указан номер или счёт.")
+        ("MasterCard 9876 5455 65", "Не верно указан номер или счёт."),
     ],
 )
 def test_mask_account_card(info, expected):
