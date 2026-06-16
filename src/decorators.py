@@ -14,8 +14,8 @@ def log(filename=None):
 
             if filename:
                 # Запись в файл
-                file = open(filename, 'a', encoding='utf-8')
-                file.write(start_msg + '\n')
+                file = open(filename, "a", encoding="utf-8")
+                file.write(start_msg + "\n")
             else:
                 # Вывод в консоль
                 print(start_msg)
@@ -28,7 +28,7 @@ def log(filename=None):
                 end_msg = f"Функция '{func_name}' успешно завершена. Результат: {result}"
 
                 if filename:
-                    file.write(end_msg + '\n')
+                    file.write(end_msg + "\n")
                     file.close()
                 else:
                     print(end_msg)
@@ -40,7 +40,7 @@ def log(filename=None):
                 error_msg = f"Ошибка в функции '{func_name}': {e}"
 
                 if filename:
-                    file.write(error_msg + '\n')
+                    file.write(error_msg + "\n")
                     file.close()
                 else:
                     print(error_msg)
@@ -49,4 +49,5 @@ def log(filename=None):
                 raise
 
         return wrapper
+
     return decorator
